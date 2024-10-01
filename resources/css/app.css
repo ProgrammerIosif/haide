@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .section {
+    @apply max-w-lg md:max-w-7xl px-2 sm:max-xl:px-5 mx-auto;
+  }
+
+  .primary-colors {
+    color: #ebdbb2;
+    background-color: #282828;
+    @apply border-[#ebdbb2];
+  }
+  
+  .secondary-colors {
+    color: #282828;
+    background-color: #ebdbb2;
+    @apply border-[#282828];
+  }
+
+  .heading {
+    @apply font-medium text-center text-6xl leading-relaxed
+  }
+
+  .semicircle-divider-up {
+    border-top-left-radius: 100% 70%; 
+    border-top-right-radius: 100% 70%;
+    height: 600px;
+    @apply w-full secondary-colors scale-x-150 z-[-10] relative;
+  }
+
+  .semicircle-divider-down {
+    border-bottom-left-radius: 100% 70%; 
+    border-bottom-right-radius: 100% 70%;
+    height: 600px;
+    @apply w-full secondary-colors scale-x-150 z-[-10] relative;
+  }
+}
