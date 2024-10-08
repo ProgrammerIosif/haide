@@ -41,3 +41,31 @@ Route::get('/events/{event}', function (Event $event) {
         'event' => $event
     ]);
 });
+
+Route::get('/events/{event}/edit', function (Event $event) {
+    return view('events.edit', [
+        'event' => $event
+    ]);
+});
+
+Route::patch('/events/{event}', function (Event $event) {
+    request()->validate([
+        'name' => ['required','min:5'],
+        'location' => ['required','min:5']
+    ]);
+
+    //authorize (On hold...)
+
+    $event->update([
+        'name' => request('name'),
+        'location' => request('location'),
+    ]);
+
+    return redirect('/events/' . $event->id);
+});
+
+Route::delete('/events/{event}', function (Event $event) {
+    //authorize
+    $event->delete();
+    return redirect('/events');
+});

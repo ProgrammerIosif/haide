@@ -1,10 +1,9 @@
 <x-layout>
-    <form method="POST" action="/events">
+    <form method="POST" action="/events/{{ $event->id }}">
         @csrf
+        @method('PATCH')
         <div class="space-y-6">
             <div>
-                <h2 class="text-base font-semibold leading-7">Create a New Event</h2>
-                <p class="mt-1 text-sm leading-6">We just need a handful of details from you.</p>
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
                         <label for="name" class="block text-sm font-medium leading-6">Name</label>
@@ -16,6 +15,7 @@
                                     name="name"
                                     id="name"
                                     placeholder="name"
+                                    value="{{ $event->name }}"
                                 >
                             </div>
                             @error('name')
@@ -33,6 +33,7 @@
                                     name="location"
                                     id="location"
                                     placeholder="location"
+                                    value="{{ $event->location }}"
                                 >
                             </div>
                             @error('location')
@@ -42,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <x-anchor tag="button" type="secondary" size="small">Create</x-anchor>
+            <x-anchor tag="button" type="secondary" size="small">Update</x-anchor>
         </div>
     </form> 
 </x-layout>
