@@ -7,8 +7,10 @@
             </a>
         </div>
         <div class="flex flex-1 justify-end gap-5">
-            <x-anchor href="/log-in" type="primary" hover="inverse" size="small">Log in</x-anchor>
-            <x-anchor href="/sign-up" type="secondary" size="small">Sign up</x-anchor>
+            @guest
+                <x-anchor href="/login" type="primary" hover="inverse" size="small">Log in</x-anchor>
+                <x-anchor href="/register" type="secondary" size="small">Sign up</x-anchor>
+            @endguest
         </div>
     </nav>
 </header>

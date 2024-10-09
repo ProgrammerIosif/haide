@@ -7,7 +7,7 @@
                 <h1>Here you will find your next adventure.</h1>
             </div>
             <div class="flex items-center justify-center gap-12 mt-8">
-                <x-anchor href="/sign-up" type="secondary" size="large">Sign up</x-anchor>
+                <x-anchor href="/register" type="secondary" size="large">Sign up</x-anchor>
                 <x-anchor href="/events" type="primary" outline hover="inverse" size="large">Browse Events</x-anchor>
             </div>
         </div>
