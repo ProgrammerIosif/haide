@@ -11,6 +11,12 @@
                 <x-anchor href="/login" type="primary" hover="inverse" size="small">Log in</x-anchor>
                 <x-anchor href="/register" type="secondary" size="small">Sign up</x-anchor>
             @endguest
+            @auth
+                <form method="POST" action="/logout">
+                    @csrf
+                    <x-anchor tag="button" type="secondary" size="small">Log out</x-anchor>
+                </form>
+            @endauth
         </div>
     </nav>
 </header>
