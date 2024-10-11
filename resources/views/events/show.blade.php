@@ -15,10 +15,12 @@
         <div class="relative my-8 flex items-center gap-x-4">
             {{ $event->organizer->name }}
         </div>
-        <div class="flex gap-5">
-            <x-anchor type="secondary" size="small" href="/events/{{ $event->id }}/edit">Edit</x-anchor>
-            <x-anchor form="delete" tag="button" type="warning" size="small">Delete</x-anchor>
-        </div>
+        @can('edit', $event)
+            <div class="flex gap-5">
+                <x-anchor type="secondary" size="small" href="/events/{{ $event->id }}/edit">Edit</x-anchor>
+                <x-anchor form="delete" tag="button" type="warning" size="small">Delete</x-anchor>
+            </div>
+        @endcan
     </div>
     <form method="POST" action="/events/{{ $event->id }}" id="delete" class="hidden">
         @csrf
