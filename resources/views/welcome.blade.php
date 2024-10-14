@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Haide | Find here your next adventure">
     <section class="section">
         <div class="mt-20">
             <div class="heading relative z-10">
@@ -7,12 +7,17 @@
                 <h1>Here you will find your next adventure.</h1>
             </div>
             <div class="flex items-center justify-center gap-12 mt-8">
-                <x-anchor href="/register" type="secondary" size="large">Sign up</x-anchor>
+                @guest
+                    <x-anchor href="/register" type="secondary" size="large">Sign up</x-anchor>
+                @endguest
+                @auth
+                    <x-anchor href="/events/create" type="secondary" size="large">Add New Event</x-anchor>
+                @endauth
                 <x-anchor href="/events" type="primary" outline hover="inverse" size="large">Browse Events</x-anchor>
             </div>
         </div>
         <div id="image-container">
-            <img class="mb-32 w-full h-auto" src="{{ asset('img/events.png')}}" alt="">
+            <img class="mb-32 w-full h-auto" src="{{ asset('img/events.png') }}" alt="">
         </div>
     </section>
     
@@ -26,7 +31,9 @@
                     <x-glowing_logo colors='secondary'></x-glowing_logo>
                 </div>
                 <div class="mb-4">from anywhere</div>
-                <x-anchor href="/sign-up" type="secondary" outline hover="inverse" size="large">Join Now</x-anchor>
+                @guest
+                    <x-anchor href="/sign-up" type="secondary" outline hover="inverse" size="large">Join Now</x-anchor>
+                @endguest
             </div>
             <div class="col-span-3">
                 <img src="{{ asset('img/devices.png') }}" alt="">

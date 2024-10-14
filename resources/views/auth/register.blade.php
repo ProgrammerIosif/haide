@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Haide | Register">
     <form method="POST" action="/register">
         @csrf
         <div class="space-y-6">

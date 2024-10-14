@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Haide | Log in">
     <form method="POST" action="/login">
         @csrf
         <div class="space-y-6">

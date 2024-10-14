@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Haide | Create a new event">
     <form method="POST" action="/events">
         @csrf
         <div class="space-y-6">

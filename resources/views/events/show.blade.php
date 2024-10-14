@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Haide | {{$event->name}}">
    <div class="flex flex-col items-start justify-between">
         <div class="flex items-center gap-x-4 text-xs">
             <p>{{$event->location}}</p>

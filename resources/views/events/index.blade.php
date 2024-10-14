@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout title="Haide | Search events">
     <div class="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16">
         @foreach ($events as $event)
         <div class="flex max-w-xl flex-col items-start justify-between">
@@ -7,7 +7,7 @@
             </div>
             <div class="group relative">
                 <h3 class="mt-3 text-lg font-semibold">
-                    <a href="#">
+                    <a href="/events/{{ $event->id }}">
                     <span class="absolute inset-0"></span>
                     {{ $event->id }}. {{ $event->name }}
                     </a>
