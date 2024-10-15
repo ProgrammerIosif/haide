@@ -1,17 +1,11 @@
 <x-layout title="Haide | Register">
-    <form method="POST" action="/register">
+    <form method="POST" action="/register" class="max-w-96 mx-auto flex flex-col mt-[calc(8vh)]">
         @csrf
-        <div class="space-y-6">
-            <div>
-                <p class="mt-1 text-sm leading-6">We just need a handful of details from you.</p>
-                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <x-form-field name="name" :value="old('name')" required>Name</x-form-field>
-                    <x-form-field type="email" name="email" :value="old('email')" required>Email</x-form-field>
-                    <x-form-field type="password" name="password" required>Password</x-form-field>
-                    <x-form-field type="password" name="password_confirmation" required>Confirm password</x-form-field>
-                </div>
-            </div>
-            <x-anchor tag="button" type="secondary" size="small">Register</x-anchor>
-        </div>
+        <x-form-field name="name" :value="old('name')" required>Name</x-form-field>
+        <x-form-field type="email" name="email" :value="old('email')" required>Email</x-form-field>
+        <x-form-field type="password" name="password" required>Password</x-form-field>
+        <x-form-field type="password" name="password_confirmation" required>Confirm password</x-form-field>
+        <br>
+        <x-anchor tag="button" type="secondary">Register</x-anchor>
     </form> 
 </x-layout>

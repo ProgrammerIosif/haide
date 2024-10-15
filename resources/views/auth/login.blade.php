@@ -1,14 +1,9 @@
 <x-layout title="Haide | Log in">
-    <form method="POST" action="/login">
+    <form method="POST" action="/login" class="max-w-96 mx-auto flex flex-col mt-[calc(100px+8vh)]">
         @csrf
-        <div class="space-y-6">
-            <div>
-                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                    <x-form-field type="email" name="email" required>Email</x-form-field>
-                    <x-form-field type="password" name="password" required>Password</x-form-field>
-                </div>
-            </div>
-            <x-anchor tag="button" type="secondary" size="small">Log in</x-anchor>
-        </div>
+        <x-form-field type="email" name="email" required>Email</x-form-field>
+        <x-form-field type="password" name="password" required>Password</x-form-field>
+        <br>
+        <x-anchor tag="button" type="secondary">Log in</x-anchor>
     </form> 
 </x-layout>

@@ -13,14 +13,14 @@ class SessionController extends Controller
     }
 
     public function store(Request $request) {
-        if( !Auth::attempt(
-                $request->validate([
-                    'email' => ['required', 'email'],
-                    'password' => ['required']
-                ])
+        if (!Auth::attempt(
+            $request->validate([
+                'email' => ['required', 'email'],
+                'password' => ['required']
+            ])
         )) {
             throw ValidationException::withMessages([
-                'email' => 'The credentials do not match'
+                'password' => 'The credentials do not match'
             ]);
         }
 
