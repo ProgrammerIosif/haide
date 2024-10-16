@@ -8,12 +8,12 @@
             </div>
             <div class="flex items-center justify-center gap-12 mt-8">
                 @guest
-                    <x-anchor href="/register" type="secondary" size="large">Sign up</x-anchor>
+                    <x-anchor href="/register" colors="secondary" size="large">Sign up</x-anchor>
                 @endguest
                 @auth
-                    <x-anchor href="/events/create" type="secondary" size="large">Add New Event</x-anchor>
+                    <x-anchor href="/events/create" colors="secondary" size="large">Add New Event</x-anchor>
                 @endauth
-                <x-anchor href="/events" type="primary" outline hover="inverse" size="large">Browse Events</x-anchor>
+                <x-anchor href="/events" colors="primary" outline hover="inverse" size="large">Browse Events</x-anchor>
             </div>
         </div>
         <div id="image-container">
@@ -32,7 +32,7 @@
                 </div>
                 <div class="mb-4">from anywhere</div>
                 @guest
-                    <x-anchor href="/sign-up" type="secondary" outline hover="inverse" size="large">Join Now</x-anchor>
+                    <x-anchor href="/sign-up" colors="secondary" outline hover="inverse" size="large">Join Now</x-anchor>
                 @endguest
             </div>
             <div class="col-span-3">

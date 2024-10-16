@@ -8,13 +8,13 @@
         </div>
         <div class="flex flex-1 justify-end gap-5">
             @guest
-                <x-anchor href="/login" type="primary" hover="inverse" size="small">Log in</x-anchor>
-                <x-anchor href="/register" type="secondary" size="small">Sign up</x-anchor>
+                <x-anchor href="/login" colors="primary" hover="inverse" size="small">Log in</x-anchor>
+                <x-anchor href="/register" colors="secondary" size="small">Sign up</x-anchor>
             @endguest
             @auth
                 <form method="POST" action="/logout">
                     @csrf
-                    <x-anchor tag="button" type="secondary" size="small">Log out</x-anchor>
+                    <x-anchor tag="button" colors="secondary" size="small">Log out</x-anchor>
                 </form>
             @endauth
         </div>

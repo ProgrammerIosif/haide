@@ -9,7 +9,7 @@
                     <x-form-field name="location" :value="$event->location" required>Location</x-form-field>
                 </div>
             </div>
-            <x-anchor tag="button" type="secondary" size="small">Update</x-anchor>
+            <x-anchor tag="button" colors="secondary" size="small">Update</x-anchor>
         </div>
     </form> 
 </x-layout>

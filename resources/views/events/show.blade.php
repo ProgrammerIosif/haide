@@ -17,8 +17,8 @@
         </div>
         @can('edit', $event)
             <div class="flex gap-5">
-                <x-anchor type="secondary" size="small" href="/events/{{ $event->id }}/edit">Edit</x-anchor>
-                <x-anchor form="delete" tag="button" type="warning" size="small">Delete</x-anchor>
+                <x-anchor colors="secondary" size="small" href="/events/{{ $event->id }}/edit">Edit</x-anchor>
+                <x-anchor form="delete" tag="button" colors="warning" size="small">Delete</x-anchor>
             </div>
         @endcan
     </div>
