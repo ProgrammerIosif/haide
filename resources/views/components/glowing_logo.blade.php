@@ -1,7 +1,7 @@
 <div class="glowing-logo inline-block relative max-w-xs w-full ml-6 p-0.5">
     <div class="rounded-lg {{ $colors === 'primary' ? 'primary-colors' : 'secondary-colors'}}">
         <img class="inline h-24 -mr-4" 
-            src="{{ $colors === 'primary' ? asset('img/logo.png') : asset('img/logo-dark.png')}}" 
+            src="{{ $colors === 'primary' ? asset('img/logo.webp') : asset('img/logo-dark.webp')}}" 
             alt="">
         Haide
     </div>

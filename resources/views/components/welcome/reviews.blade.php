@@ -25,9 +25,9 @@
                 {{ $review['text'] }}
             </p>
             <div class="flex">
-                <img src="{{ asset('img/reviews/' . $loop->index . '.png') }}" alt="" class="rounded-full" width="64" height="64">
+                <img loading="lazy" src="{{ asset('img/reviews/' . $loop->index . '.webp') }}" alt="" class="rounded-full" width="64" height="64">
                 <div class="flex flex-col justify-center ml-4">
-                    <h3 class="text-[#98971a] font-semibold"> {{ $review['name'] }} </h3>
+                    <p class="text-[#98971a] font-semibold"> {{ $review['name'] }} </p>
                     <p class="text-[#458588]"> {{ $review['occupation'] }} </p>
                 </div>
             </div>

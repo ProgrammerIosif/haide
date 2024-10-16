@@ -2,27 +2,27 @@
     $items = [
         [
             'text' => 'Car Meetings',
-            'image' => asset('img/slider/car-meet.jpg'),
+            'image' => asset('img/slider/car-meet.webp'),
             'color' => "#b16286"
         ],
         [
             'text' => 'Concerts',
-            'image' => asset('img/slider/concert.jpg'),
+            'image' => asset('img/slider/concert.webp'),
             'color' => "#458588"
         ],
         [
             'text' => 'Parties',
-            'image' => asset('img/slider/party.jpg'),
+            'image' => asset('img/slider/party.webp'),
             'color' => "#d79921"
         ],
         [
             'text' => 'Sports Events',
-            'image' => asset('img/slider/sports-event.jpg'),
+            'image' => asset('img/slider/sports-event.webp'),
             'color' => "#cc241d"
         ],
         [
             'text' => 'Expeditions',
-            'image' => asset('img/slider/expedition.jpg'),
+            'image' => asset('img/slider/expedition.webp'),
             'color' => "#689b64"
         ],
     ]
@@ -50,7 +50,7 @@
                 <div class="absolute w-full h-full overflow-hidden transition-opacity duration-500 rounded-xl border-4"
                     style="opacity: {{ $key === 0 ? 1 : 0 }}; border-color: {{ $item["color"]}}"
                 >
-                    <img src="{{ $item['image'] }}" 
+                    <img loading="lazy" src="{{ $item['image'] }}" 
                         alt="Slideshow Image {{ $key+1 }}">
                 </div>
             @endforeach
