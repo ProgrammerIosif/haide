@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('location');
+            $table->timestamp('datetime');
             $table->string('description');
+            $table->string('image')->nullable();
+            $table->json('links')->nullable();
             $table->foreignId('organizer_id')->constrained('users');
             $table->timestamps();
         });
