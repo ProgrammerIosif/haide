@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class EventController extends Controller
 {
@@ -25,34 +26,15 @@ class EventController extends Controller
     }
 
     public function store(Request $request) {
-        $request->validate([
-            'name' => ['required','string','max:64'],
-            'location' => ['required','max:64'],
-            'datetime' => ['required','date'],
-            'description' => ['required','string','max:1000'],
-            'image' => ['required','image','max:512'],
-            'links' => ['nullable', 'array'], 
-            'links.*' => ['required', 'url', 'max:255', 'distinct', 'regex:/^https:\/\/.+$/i']
-        ]);
+        $request->validate($this->validationRules());
+        $event = Event::create($this->validatedFields($request));
 
-        $event = Event::create([
-            'name' => $request->name,
-            'location' => $request->location,
-            'datetime' => $request->datetime,
-            'description' => $request->description,
-            'links' => json_encode($request->links),
-            'organizer_id' => $request->user()->id
-        ]);
-
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = $event->id . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('img/events'), $imageName);
-            $event->image = 'img/events/' . $imageName;
+        if($request->image) {
+            $event->image = $this->storeImage($request, $event->id);
             $event->save();
         }
     
-        return redirect('events');
+        return redirect('events/' . $event->id);
     }
 
     public function edit(Event $event) {
@@ -62,20 +44,51 @@ class EventController extends Controller
     }
 
     public function update(Request $request, Event $event) {
-        $request->validate([
-            'name' => ['required','min:5'],
-            'location' => ['required','min:5']
-        ]);
-        $event->update([
-            'name' => $request->name,
-            'location' => $request->location,
-        ]);
-    
+        $request->validate($this->validationRules());
+        $event->update($this->validatedFields($request));
+
+        if($request->image) {
+            $event->image = $this->storeImage($request, $event->id);
+            $event->save();
+        }
+        
         return redirect('events/' . $event->id);
     }
 
     public function destroy(Event $event) {
+        File::delete(public_path($event->image));
         $event->delete();
         return redirect('events');
+    }
+
+    // Helper functions
+    private function validationRules() {
+        return [
+            'name' => ['required','string','max:64'],
+            'location' => ['required','max:64'],
+            'datetime' => ['required','date'],
+            'description' => ['required','string','max:1000'],
+            'image' => ['image','max:512'],
+            'links' => ['nullable', 'array'], 
+            'links.*' => ['required', 'url', 'max:255', 'distinct', 'regex:/^https:\/\/.+$/i']
+        ];
+    }
+    
+    private function validatedFields(Request $request) {
+        return [
+            'name' => $request->name,
+            'location' => $request->location,
+            'datetime' => $request->datetime,
+            'description' => $request->description,
+            'links' => json_encode($request->links),
+            'organizer_id' => $request->user()->id
+        ];
+    }
+
+    private function storeImage(Request $request, $name) {
+        $image = $request->file('image');
+        $imageName = $name . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('img/events'), $imageName);
+        return 'img/events/' . $imageName;
     }
 }
