@@ -1,23 +1,21 @@
 <x-layout title="Haide | Search events">
-    <div class="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16">
+    <div class="section mx-auto grid lg:grid-cols-2 gap-8">
+        <h1 class="lg:col-span-2 my-4 text-center text-5xl">Events</h1>
         @foreach ($events as $event)
-        <div class="flex max-w-xl flex-col items-start justify-between">
-            <div class="flex items-center gap-x-4 text-xs">
-                <p>{{$event->location}}</p>
-            </div>
-            <div class="group relative">
-                <h3 class="mt-3 text-lg font-semibold">
-                    <a href="/events/{{ $event->id }}">
-                    <span class="absolute inset-0"></span>
-                    {{ $event->id }}. {{ $event->name }}
-                    </a>
-                </h3>
-                <p class="mt-5">{{ $event->description }}</p>
-            </div>
-            <div class="relative mt-8 flex items-center gap-x-4">
-                {{ $event->organizer->name }}
-            </div>
-        </div>
+            <a href="/events/{{ $event->id }}">
+                <div class="primary-colors shadow-lg shadow-black rounded-xl overflow-hidden grid md:grid-cols-2 md:min-h-72 ">
+                    <div class="h-full overflow-hidden md:aspect-square">
+                        <img class="md:h-full md:object-cover" src="{{ asset($event->image) }}" alt="">
+                    </div>
+                    <div class="h-full relative p-5 flex flex-col justify-center primary-colors bg-[#1d2021]">
+                        <p class="text-[#458588] font-bold">{{ $event->location }}</p>
+                        <p class="text-[#98971a]">{{ $event->datetime }}</p>
+                        <h2 class="text-2xl font-bold mt-2 ">{{ $event->name }}</h3>
+                        <p class="text-sm">{{ substr($event->description, 0, 80) }}...</p>
+                        <p class="text-[#cc241d] font-bold mt-5">{{ '@' . $event->organizer->name }}</p>
+                    </div>
+                </div>
+            </a>
         @endforeach
     </div>
 </x-layout>
