@@ -6,7 +6,7 @@
         <div>
             <x-form-field name="name" :value="$event->name" required>Name</x-form-field>
             <x-form-field name="location" :value="$event->location" required>Location</x-form-field>
-            <x-form-field name="datetime" type="datetime-local" :value="$event->datetime" required>Date & Time</x-form-field>
+            <x-form-field name="datetime" type="datetime-local" :value="Carbon\Carbon::parse($event->datetime)" required>Date & Time</x-form-field>
             <x-form-field type="file" name="image">Cover Image</x-form-field>
         </div>
         <div>

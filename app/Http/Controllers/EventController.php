@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -78,7 +79,7 @@ class EventController extends Controller
         return [
             'name' => $request->name,
             'location' => $request->location,
-            'datetime' => $request->datetime,
+            'datetime' => Carbon::parse($request->datetime)->format('d.m.Y H:i'),
             'description' => $request->description,
             'links' => json_encode($request->links),
             'organizer_id' => $request->user()->id
