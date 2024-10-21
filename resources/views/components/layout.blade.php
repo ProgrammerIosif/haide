@@ -7,6 +7,7 @@
 
         <title>{{ $title }}</title>
         <meta name="description" content="Haide is the place where you can discover or create events and connect with friends, like-minded people, or anyone ready for a fun experience.">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

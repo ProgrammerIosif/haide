@@ -17,7 +17,7 @@
             </div>
         </div>
         <div id="image-container">
-            <img loading="lazy"  class="mb-32 w-full h-auto" src="{{ asset('img/events.webp') }}" alt="">
+            <img class="mb-32 w-full h-auto" src="{{ asset('img/events.webp') }}" alt="">
         </div>
     </section>
     

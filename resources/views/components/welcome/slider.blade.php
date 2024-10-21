@@ -45,7 +45,7 @@
         </div>
     </div>
     <div>
-        <div id="image-slider" class="relative w-[600px] h-[600px]">
+        <div id="image-slider" class="relative w-[600px] h-[600px] shadow-2xl shadow-black">
             @foreach($items as $key => $item)
                 <div class="absolute w-full h-full overflow-hidden transition-opacity duration-500 rounded-xl border-4"
                     style="opacity: {{ $key === 0 ? 1 : 0 }}; border-color: {{ $item["color"]}}"

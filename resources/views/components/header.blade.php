@@ -8,10 +8,15 @@
         </div>
         <div class="flex flex-1 justify-end gap-5">
             @guest
+                <x-anchor href="/events" colors="primary" hover="inverse" size="small">Events</x-anchor>
                 <x-anchor href="/login" colors="primary" hover="inverse" size="small">Log in</x-anchor>
+                <br>
                 <x-anchor href="/register" colors="secondary" size="small">Sign up</x-anchor>
             @endguest
             @auth
+                <x-anchor href="/events" colors="primary" hover="inverse" size="small">Events</x-anchor>
+                <x-anchor href="/events/create" colors="primary" hover="inverse" size="small">Create</x-anchor>
+                <br>
                 <form method="POST" action="/logout">
                     @csrf
                     <x-anchor tag="button" colors="secondary" size="small">Log out</x-anchor>

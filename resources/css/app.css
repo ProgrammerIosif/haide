@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer utilities {
   .section {
-    @apply max-w-lg md:max-w-7xl px-2 sm:max-xl:px-5 mx-auto;
+    @apply max-w-lg md:max-w-7xl max-2xl:px-5 mx-auto;
   }
 
   .primary-colors {
@@ -22,18 +22,27 @@
   .heading {
     @apply font-medium text-center text-6xl leading-relaxed
   }
+}
 
-  .semicircle-divider-up {
-    border-top-left-radius: 100% 70%; 
-    border-top-right-radius: 100% 70%;
-    height: 600px;
-    @apply w-full secondary-colors scale-x-150 z-[-10] relative;
-  }
+.semicircle-divider-up {
+  border-top-left-radius: 100% 70%; 
+  border-top-right-radius: 100% 70%;
+  height: 600px;
+  @apply w-full secondary-colors scale-x-150 z-[-10] relative;
+}
 
-  .semicircle-divider-down {
-    border-bottom-left-radius: 100% 70%; 
-    border-bottom-right-radius: 100% 70%;
-    height: 600px;
-    @apply w-full secondary-colors scale-x-150 z-[-10] relative;
-  }
+.semicircle-divider-down {
+  border-bottom-left-radius: 100% 70%; 
+  border-bottom-right-radius: 100% 70%;
+  height: 600px;
+  @apply w-full secondary-colors scale-x-150 z-[-10] relative;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  @apply secondary-colors rounded-md mr-1 transition-all hover:brightness-75 hover:cursor-pointer active:translate-y-1;
+}
+
+input[type="file"]::file-selector-button {
+  @apply mr-5 secondary-colors rounded-lg transition-all duration-200 font-semibold border-none px-3 py-1
+    hover:cursor-pointer hover:brightness-75 active:translate-y-1;
 }

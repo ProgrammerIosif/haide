@@ -81,7 +81,7 @@ class EventController extends Controller
             'location' => $request->location,
             'datetime' => Carbon::parse($request->datetime)->format('d.m.Y H:i'),
             'description' => $request->description,
-            'links' => json_encode($request->links),
+            'links' => $request->links !== null ? json_encode($request->links) : null,
             'organizer_id' => $request->user()->id
         ];
     }
