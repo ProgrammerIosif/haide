@@ -6,22 +6,29 @@
                 <span class="ml-2 text-4xl font-bold">Haide</span>
             </a>
         </div>
-        <div class="flex flex-1 justify-end gap-5">
-            @guest
-                <x-anchor href="/events" colors="primary" hover="inverse" size="small">Events</x-anchor>
-                <x-anchor href="/login" colors="primary" hover="inverse" size="small">Log in</x-anchor>
-                <br>
-                <x-anchor href="/register" colors="secondary" size="small">Sign up</x-anchor>
-            @endguest
-            @auth
-                <x-anchor href="/events" colors="primary" hover="inverse" size="small">Events</x-anchor>
-                <x-anchor href="/events/create" colors="primary" hover="inverse" size="small">Create</x-anchor>
-                <br>
-                <form method="POST" action="/logout">
-                    @csrf
-                    <x-anchor tag="button" colors="secondary" size="small">Log out</x-anchor>
-                </form>
-            @endauth
+        {{-- desktop --}}
+        <x-menu size="small" class="max-sm:hidden flex flex-1 justify-end gap-5 text-nowrap"/>
+        {{-- mobile --}}
+        <div onclick="openDropdown()" class="sm:hidden w-8 py-5 flex gap-1.5 flex-col justify-between cursor-pointer">
+            <div class="h-0.5 bg-current"></div>
+            <div class="h-0.5 bg-current"></div>
+            <div class="h-0.5 bg-current"></div>
+        </div>
+        <div id="dropdown" class="bg-[#1d2021] scale-0 font-semibold text-xl z-20 origin-top-right ease-in-out duration-500 transition-all w-full h-screen absolute right-0 top-0 py-5 rounded-xl shadow-md shadow-black">
+            <div onclick="closeDropdown()">
+              <div class="absolute right-4 top-2 cursor-pointer text-2xl">x</div>
+            </div>
+            <x-menu size="large" class="h-full flex flex-col items-center justify-center gap-2 pb-20"/>
         </div>
     </nav>
 </header>
+<script>
+    function openDropdown() {
+        document.getElementById('dropdown').classList.remove('scale-0');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeDropdown() {
+        document.getElementById('dropdown').classList.add('scale-0');
+        document.body.style.overflow = 'auto';
+    }
+</script>
