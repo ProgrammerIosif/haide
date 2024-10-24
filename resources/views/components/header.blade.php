@@ -14,7 +14,7 @@
             <div class="h-0.5 bg-current"></div>
             <div class="h-0.5 bg-current"></div>
         </div>
-        <div id="dropdown" class="bg-[#1d2021] scale-0 font-semibold text-xl z-20 origin-top-right ease-in-out duration-500 transition-all w-full h-screen absolute right-0 top-0 py-5 rounded-xl shadow-md shadow-black">
+        <div id="dropdown" class="bg-[#1d2021] scale-0 font-semibold text-xl z-20 origin-top-right ease-in-out duration-500 transition-all w-full h-screen absolute right-0 top-0 py-5">
             <div onclick="closeDropdown()">
               <div class="absolute right-4 top-2 cursor-pointer text-2xl">x</div>
             </div>

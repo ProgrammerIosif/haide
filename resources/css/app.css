@@ -4,7 +4,7 @@
 
 @layer utilities {
   .section {
-    @apply max-w-lg md:max-w-7xl max-2xl:px-5 mx-auto;
+    @apply max-w-lg sm:max-w-7xl max-2xl:px-5 mx-auto;
   }
 
   .primary-colors {
@@ -20,7 +20,7 @@
   }
 
   .heading {
-    @apply font-medium text-center text-6xl leading-relaxed
+    @apply font-medium text-center text-5xl xl:text-6xl leading-normal lg:leading-relaxed
   }
 }
 

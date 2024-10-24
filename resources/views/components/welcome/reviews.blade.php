@@ -18,9 +18,9 @@
 
     ];
 @endphp
-<div class="grid md:grid-cols-3 gap-20">
+<div class="grid lg:grid-cols-3 gap-20 place-content-center">
     @foreach ($reviews as $review)
-        <div class="flex flex-col justify-between">
+        <div class="flex flex-col justify-between max-w-[400px]">
             <p class="before:content-[&quot;“&quot;] after:content-[&quot;“&quot;] mb-3">
                 {{ $review['text'] }}
             </p>

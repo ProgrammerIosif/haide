@@ -27,9 +27,9 @@
         transform: translateY(0);
     }
 </style>
-<ul id="cards" class="grid grid-cols-3 gap-12 relative mt-16">
+<ul id="cards" class="grid max-sm:place-items-center sm:grid-cols-2 lg:grid-cols-3 gap-12 relative mt-16">
     @foreach($items as $item)
-        <li class="group relative overflow-hidden h-60 p-10 flex items-center justify-center primary-colors rounded-[25%_10%]">
+        <li class="group relative max-sm:w-80 overflow-hidden h-60 p-10 flex items-center justify-center primary-colors rounded-[25%_10%]">
             <div class="h-40 w-40 {{ $colors[$loop->index] }} absolute -top-20 -right-20 rounded-[50%] group-hover:scale-[6] transition-transform duration-500"></div>
             <p class="relative text-2xl text-center">{{ $item }}</p>
         </li>

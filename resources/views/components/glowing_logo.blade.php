@@ -1,4 +1,4 @@
-<div class="glowing-logo inline-block relative max-w-xs w-full ml-6 p-0.5">
+<div class="glowing-logo inline-block relative max-w-xs w-full xl:ml-6 p-0.5 text-6xl">
     <div class="rounded-lg {{ $colors === 'primary' ? 'primary-colors' : 'secondary-colors'}}">
         <img class="inline h-24 -mr-4" 
             src="{{ $colors === 'primary' ? asset('img/logo.webp') : asset('img/logo-dark.webp')}}" 
